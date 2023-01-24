@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol ScreenHumanEnterNumberPresenterProtocol: AnyObject {
-    init(view: ScreenHumanEnterNumberVCProtocol)
+    init(view: ScreenHumanEnterNumberVCProtocol, router: RouterProtocol)
     func buttonEnterNumberWasPress()
     func writeHumanValue(_ value: String?)
 }
@@ -18,26 +18,25 @@ protocol ScreenHumanEnterNumberPresenterProtocol: AnyObject {
 
 class ScreenHumanEnterNumberPresenter: ScreenHumanEnterNumberPresenterProtocol {
 
-    var humanValue: String = ""
+    private var humanValue: String = ""
     
-    unowned let view: ScreenHumanEnterNumberVCProtocol
+    private unowned let view: ScreenHumanEnterNumberVCProtocol
+    private let router: RouterProtocol
     
-    required init(view: ScreenHumanEnterNumberVCProtocol) {
+    required init(view: ScreenHumanEnterNumberVCProtocol, router: RouterProtocol) {
         self.view = view
+        self.router = router
     }
     
     
     func buttonEnterNumberWasPress() {
         view.setNumberHuman()
-    }
-    
-    
-    private func humanValueValid(_ text: String) -> Bool {
-        if let number = Int(text), (1...100).contains(number) {
-//            gameModel.humanNumber = number
-            return true
+        if humanValue.isValid() {
+            let humanNumber = Int(humanValue)!
+            router.showsScreenThinksComputer(humanNumber)
+        } else {
+            view.setLabelMessage("Enter correct number in the range 1...100")
         }
-        return false
     }
     
     

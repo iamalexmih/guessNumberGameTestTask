@@ -9,32 +9,75 @@ import UIKit
 
 
 protocol RouterMainProtocol {
+    var viewController: UIViewController? { get set }
     var builder: BuilderProtocol? { get set }
-    init(builder: BuilderProtocol)
+    init(viewController: UIViewController, builder: BuilderProtocol)
 }
 
 protocol RouterProtocol: RouterMainProtocol {
-//    func initialViewController()
-    func showsSreenThinksComputer()
-    func showsScreenThinksHuman() -> UIViewController
+    func showScreenStartGame()
+    func showsScreenHumanEnterNumber()
+    func showsScreenThinksComputer(_ humanNumber: Int)
+    func showsScreenThinksHuman()
+    func showScreenScores()
 }
 
 
 class Router: RouterProtocol {
+    
+    var viewController: UIViewController?
     var builder: BuilderProtocol?
     
-    required init(builder: BuilderProtocol) {
+    required init(viewController: UIViewController, builder: BuilderProtocol) {
+        self.viewController = viewController
         self.builder = builder
     }
     
-    func showsSreenThinksComputer() {
-//        builder?.screenThinksComputer(gameModel: <#T##GameModel#>, router: self)
+    
+    func showScreenStartGame() {
+        if let viewController = viewController, let builder = builder {
+            let vc = builder.screenStartGameVC(router: self)
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+            self.viewController = vc
+        }
     }
     
-    func showsScreenThinksHuman() -> UIViewController {
-        if let builder = builder {
-            return builder.screenThinksHuman(router: self)
+    
+    func showsScreenHumanEnterNumber() {
+        if let viewController = viewController, let builder = builder {
+            let vc = builder.screenHumanEnterNumber(router: self)
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+            self.viewController = vc
         }
-        return UIViewController()
+    }
+    
+    
+    func showsScreenThinksComputer(_ humanNumber: Int) {
+        if let viewController = viewController, let builder = builder {
+            let vc = builder.screenThinksComputer(humanNumber, router: self)
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+            self.viewController = vc
+        }
+    }
+    
+    func showsScreenThinksHuman() {
+        if let viewController = viewController, let builder = builder {
+            let vc = builder.screenThinksHuman(router: self)
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+            self.viewController = vc
+        }
+    }
+    
+    func showScreenScores() {
+        if let viewController = viewController, let builder = builder {
+            let vc = builder.screenScores(router: self)
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+            self.viewController = vc
+        }
     }
 }

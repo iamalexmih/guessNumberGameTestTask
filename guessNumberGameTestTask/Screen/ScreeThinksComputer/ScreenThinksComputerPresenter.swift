@@ -9,37 +9,32 @@ import Foundation
 
 
 protocol ScreenThinksComputerPresenterProtocol: AnyObject {
-    init(view: ScreenThinksComputerViewControllerProtocol, router: RouterProtocol, model: GameModel)
+    init(view: ScreenThinksComputerViewControllerProtocol, router: RouterProtocol, humanNumber: Int)
     func buttonEqualWasPress()
     func buttonMoreWasPress()
     func buttonLessWasPress()
-    func writeHumanValue(_ value: String?)
 }
 
 
 class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     
-    var humanValue: String = "55"
-    var computerValue: Int = 0
     var resultStatusText: ResultStatus = .none
     var gameModel: GameModel
     var minNumber = 1
     var maxNumber = 100
     
     unowned let view: ScreenThinksComputerViewControllerProtocol
-    let router: RouterProtocol
+    private let router: RouterProtocol
     
     
-    required init(view: ScreenThinksComputerViewControllerProtocol, router: RouterProtocol, model: GameModel) {
+    required init(view: ScreenThinksComputerViewControllerProtocol, router: RouterProtocol, humanNumber: Int) {
         self.view = view
         self.router = router
-        self.gameModel = model
-        gameModel.humanNumber = 55
+        self.gameModel = GameModel(humanNumber: humanNumber)
         computerThinksNumber()
         viewSetLabelTry()
         viewSetLabelThinksComputer()
     }
-    
 
     
     private func computerThinksNumber() {
@@ -50,7 +45,8 @@ class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     func buttonEqualWasPress() {
         if gameModel.humanNumber == gameModel.computerNumber {
             resultStatusText = .equal
-            ScoreModel.shared.computerWin = gameModel.tryGuess
+            ScoreData.shared.computerWin = gameModel.tryGuess
+            router.showsScreenThinksHuman()
         } else {
             resultStatusText = .error
         }
@@ -59,8 +55,12 @@ class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     
     
     func buttonMoreWasPress() {
-        if (gameModel.computerNumber...maxNumber).contains(gameModel.humanNumber) {
-            minNumber = gameModel.computerNumber
+        if (gameModel.computerNumber...maxNumber).contains(gameModel.humanNumber) &&
+            gameModel.humanNumber != gameModel.computerNumber {
+            if minNumber < maxNumber {
+                minNumber = gameModel.computerNumber + 1
+            }
+            print("buttonMoreWasPress min: \(minNumber), max: \(maxNumber)")
             resultStatusText = .more
             computerThinksNumber()
             viewSetLabelThinksComputer()
@@ -74,8 +74,12 @@ class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     
     
     func buttonLessWasPress() {
-        if (minNumber...gameModel.computerNumber).contains(gameModel.humanNumber) {
-            maxNumber = gameModel.computerNumber
+        if (minNumber...gameModel.computerNumber).contains(gameModel.humanNumber) &&
+            gameModel.humanNumber != gameModel.computerNumber {
+            if minNumber < maxNumber {
+                maxNumber = gameModel.computerNumber - 1
+            }
+            print("buttonLessWasPress min: \(minNumber), max: \(maxNumber)")
             resultStatusText = .less
             computerThinksNumber()
             viewSetLabelThinksComputer()
@@ -109,17 +113,12 @@ class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     }
     
     
-    func writeHumanValue(_ value: String?) {
-        
-    }
-    
-    
-    func viewSetLabelTry() {
+    private func viewSetLabelTry() {
         view.setLabelTry("Try № \(gameModel.tryGuess)")
     }
     
     
-    func viewSetLabelThinksComputer() {
+    private func viewSetLabelThinksComputer() {
         view.setLabelThinksComputer("Your number is - \(gameModel.computerNumber)?")
     }
  

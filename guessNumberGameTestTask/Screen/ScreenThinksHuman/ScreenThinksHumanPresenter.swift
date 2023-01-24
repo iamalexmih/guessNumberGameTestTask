@@ -18,32 +18,32 @@ protocol ScreenThinksHumanPresenterProtocol: AnyObject {
 
 class ScreenThinksHumanPresenter: ScreenThinksHumanPresenterProtocol {
 
-    var humanValue: String = ""
-    var resultStatusText: ResultStatus = .none
-    var gameModel = GameModel()
+    private var humanValue: String = ""
+    private var resultStatusText: ResultStatus = .none
+    private var gameModel = GameModel()
     
-    unowned let view: ScreenThinksHumanViewControllerProtocol
-    let router: RouterProtocol
+    private unowned let view: ScreenThinksHumanViewControllerProtocol
+    private let router: RouterProtocol
     
     required init(view: ScreenThinksHumanViewControllerProtocol, router: RouterProtocol) {
         self.view = view
         self.router = router
         self.computerGuessedNumber()
-        view.setLabelTry("Round \(gameModel.tryGuess)")
+        viewSetLabelTry()
         resultLabel()
     }
     
     
     func buttonGuessWasPress() {
         view.setNumberHuman()
-        humanValue.isValid()
-        if humanValueValid(humanValue) {
+        if humanValue.isValid() {
+            gameModel.humanNumber = Int(humanValue)!
             calculateResult(gameModel.humanNumber, gameModel.computerNumber)
         } else {
             resultStatusText = .error
         }
         calculateRound()
-        view.setLabelTry("Try № \(gameModel.tryGuess)")
+        viewSetLabelTry()
         resultLabel()
     }
     
@@ -60,15 +60,6 @@ class ScreenThinksHumanPresenter: ScreenThinksHumanPresenterProtocol {
     }
     
     
-    private func humanValueValid(_ text: String) -> Bool {
-        if let number = Int(text), (1...100).contains(number) {
-            gameModel.humanNumber = number
-            return true
-        }
-        return false
-    }
-    
-    
     private func calculateRound() {
         if resultStatusText == .less || resultStatusText == .more {
             gameModel.tryGuess += 1
@@ -79,12 +70,18 @@ class ScreenThinksHumanPresenter: ScreenThinksHumanPresenterProtocol {
     private func calculateResult(_ numberHuman: Int, _ numberComputer: Int) {
         if numberHuman == numberComputer {
             resultStatusText = .equal
-            ScoreModel.shared.humanWin = gameModel.tryGuess
+            ScoreData.shared.humanWin = gameModel.tryGuess
+            router.showScreenScores()
         } else if numberHuman > numberComputer {
             resultStatusText = .less
         } else {
             resultStatusText = .more
         }
+    }
+    
+    
+    private func viewSetLabelTry() {
+        view.setLabelTry("Try № \(gameModel.tryGuess)")
     }
     
     
@@ -100,7 +97,7 @@ class ScreenThinksHumanPresenter: ScreenThinksHumanPresenterProtocol {
         case .less:
             text = "No, my number is less than yours"
         case .error:
-            text = "Enter correct number"
+            text = "Enter correct number in the range 1...100"
         }
         view.setResulLabel(text)
     }

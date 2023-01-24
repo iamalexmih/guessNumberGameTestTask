@@ -18,51 +18,20 @@ protocol ScreenThinksComputerViewControllerProtocol: AnyObject {
 class ScreenThinksComputerViewController: UIViewController {
     
     var presenter: ScreenThinksComputerPresenterProtocol!
+    var landscape: [NSLayoutConstraint]?
+    var portrait: [NSLayoutConstraint]?
+    var isPortrait: Bool = true
     
-    private let labelTry: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
+    private let labelTry = UILabel().makeLabel()
+    private let labelRoundStart = UILabel().makeLabel(text: "Computer is guessing")
+    private let labelThinksComputer = UILabel().makeLabel()
+    private let labelHumanAnswer = UILabel().makeLabel()
     
-    private let labelRoundStart: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "Computer is guessing"
-        return label
-    }()
-    
-    private let labelThinksComputer: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
-    
-    private let labelHumanAnswer: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "My number is ..."
-        return label
-    }()
-    
-    private let buttonEqual: ButtonCompare = {
-        let button = ButtonCompare(type: .system)
-        button.setTitle("=", for: .normal)
-        return button
-    }()
-    
-    private let buttonMore: ButtonCompare = {
-        let button = ButtonCompare(type: .system)
-        button.setTitle(">", for: .normal)
-        return button
-    }()
-        
-    private let buttonLess: ButtonCompare = {
-        let button = ButtonCompare(type: .system)
-        button.setTitle("<", for: .normal)
-        return button
-    }()
-   
+    private let buttonEqual = UIButton().makeSmallButton(title: "=")
+    private let buttonMore = UIButton().makeSmallButton(title: ">")
+    private let buttonLess = UIButton().makeSmallButton(title: "<")
+
+
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
@@ -116,23 +85,25 @@ extension ScreenThinksComputerViewController: ScreenThinksComputerViewController
     }
 }
 
+// MARK: - Extension Constraints
 
-// MARK: - Extension for setupView and Constraints
 extension ScreenThinksComputerViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        isPortrait = UIDevice.current.orientation.isPortrait
 
-    private func setupView() {
-        view.addSubviewViewAndTamic(labelTry)
-        view.addSubviewViewAndTamic(labelRoundStart)
-        view.addSubviewViewAndTamic(labelThinksComputer)
-        view.addSubviewViewAndTamic(labelHumanAnswer)
-        view.addSubviewViewAndTamic(stackView)
-        stackView.addArrangedSubview(buttonMore)
-        stackView.addArrangedSubview(buttonEqual)
-        stackView.addArrangedSubview(buttonLess)
+        if isPortrait {
+            NSLayoutConstraint.deactivate(landscape!)
+            NSLayoutConstraint.activate(portrait!)
+        } else {
+            NSLayoutConstraint.deactivate(portrait!)
+            NSLayoutConstraint.activate(landscape!)
+        }
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        portrait = [
             labelTry.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             labelTry.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
@@ -145,10 +116,44 @@ extension ScreenThinksComputerViewController {
             labelHumanAnswer.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -15),
             labelHumanAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.widthAnchor.constraint(equalToConstant: 170),
             stackView.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        ]
+        
+        landscape = [
+            labelTry.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+            labelTry.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            labelRoundStart.topAnchor.constraint(equalTo: labelTry.bottomAnchor, constant: 15),
+            labelRoundStart.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            labelThinksComputer.topAnchor.constraint(equalTo: labelRoundStart.bottomAnchor, constant: 30),
+            labelThinksComputer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            labelHumanAnswer.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -15),
+            labelHumanAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 170),
+            stackView.heightAnchor.constraint(equalToConstant: 50)
+        ]
+    }
+}
+
+
+// MARK: - Extension for Add View
+extension ScreenThinksComputerViewController {
+    private func setupView() {
+        view.addSubviewViewAndTamic(labelTry)
+        view.addSubviewViewAndTamic(labelRoundStart)
+        view.addSubviewViewAndTamic(labelThinksComputer)
+        view.addSubviewViewAndTamic(labelHumanAnswer)
+        view.addSubviewViewAndTamic(stackView)
+        stackView.addArrangedSubview(buttonMore)
+        stackView.addArrangedSubview(buttonEqual)
+        stackView.addArrangedSubview(buttonLess)
     }
 }

@@ -15,19 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let builder = SceneBuilder()
-        let router = Router(builder: builder)
-        let view = ScreenThinksHumanViewController()
-        view.presenter = ScreenThinksHumanPresenter(view: view, router: router)
+        let builder = ScreenBuilder()
+        let view = ScreenStartGameVC()
+        let router = Router(viewController: view, builder: builder)
+        view.presenter = ScreenStartGamePresenter(view: view, router: router)
         window?.rootViewController = view
         window?.makeKeyAndVisible()
-        
-        
-//        let view = ScreenThinksHumanViewController()
-//        let gameModel = GameModel()
-//        view.presenter = ScreenThinksHumanPresenter(view: view, model: gameModel)
-//        window?.rootViewController = view
-//        window?.makeKeyAndVisible()
     }
 }
 

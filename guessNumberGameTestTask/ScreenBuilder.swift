@@ -9,19 +9,40 @@ import UIKit
 
 
 protocol BuilderProtocol {
-    func screenThinksComputer(gameModel: GameModel, router: RouterProtocol) -> UIViewController
+    func screenStartGameVC(router: RouterProtocol)  -> UIViewController
+    func screenHumanEnterNumber(router: RouterProtocol) -> UIViewController
+    func screenThinksComputer(_ humanNumber: Int, router: RouterProtocol) -> UIViewController
     func screenThinksHuman(router: RouterProtocol) -> UIViewController
+    func screenScores(router: RouterProtocol) -> UIViewController
 }
 
 
 
-class SceneBuilder: BuilderProtocol {
+class ScreenBuilder: BuilderProtocol {
     
-    func screenThinksComputer(gameModel: GameModel, router: RouterProtocol) -> UIViewController {
+    func screenStartGameVC(router: RouterProtocol)  -> UIViewController {
+        let view = ScreenStartGameVC()
+        let presenter = ScreenStartGamePresenter(view: view,
+                                                 router: router)
+        view.presenter = presenter
+        return view
+    }
+    
+    
+    func screenHumanEnterNumber(router: RouterProtocol) -> UIViewController {
+        let view = ScreenHumanEnterNumberVC()
+        let presenter = ScreenHumanEnterNumberPresenter(view: view,
+                                                      router: router)
+        view.presenter = presenter
+        return view
+    }
+    
+    
+    func screenThinksComputer(_ humanNumber: Int, router: RouterProtocol) -> UIViewController {
         let view = ScreenThinksComputerViewController()
         let presenter = ScreenThinksComputerPresenter(view: view,
                                                       router: router,
-                                                      model: gameModel)
+                                                      humanNumber: humanNumber)
         view.presenter = presenter
         return view
     }
@@ -35,5 +56,11 @@ class SceneBuilder: BuilderProtocol {
         return view
     }
     
-
+    func screenScores(router: RouterProtocol) -> UIViewController {
+        let view = ScreenScoresVC()
+        let presenter = ScreenScoresPresenter(view: view,
+                                              router: router)
+        view.presenter = presenter
+        return view
+    }
 }
