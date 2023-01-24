@@ -9,25 +9,85 @@
 /* Begin PBXBuildFile section */
 		B51FDDCF297D1FD800396B52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDCE297D1FD800396B52 /* AppDelegate.swift */; };
 		B51FDDD1297D1FD800396B52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDD0297D1FD800396B52 /* SceneDelegate.swift */; };
-		B51FDDD3297D1FD800396B52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDD2297D1FD800396B52 /* ViewController.swift */; };
-		B51FDDD6297D1FD800396B52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51FDDD4297D1FD800396B52 /* Main.storyboard */; };
+		B51FDDD3297D1FD800396B52 /* ScreenThinksHumanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDD2297D1FD800396B52 /* ScreenThinksHumanViewController.swift */; };
 		B51FDDD8297D1FDA00396B52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51FDDD7297D1FDA00396B52 /* Assets.xcassets */; };
 		B51FDDDB297D1FDA00396B52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51FDDD9297D1FDA00396B52 /* LaunchScreen.storyboard */; };
+		B51FDDEA297D5E2800396B52 /* ScreenThinksHumanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDE9297D5E2800396B52 /* ScreenThinksHumanPresenter.swift */; };
+		B51FDDED297D66C400396B52 /* UIView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDEC297D66C400396B52 /* UIView + ext.swift */; };
+		B51FDDEF297DCB8700396B52 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDEE297DCB8700396B52 /* GameModel.swift */; };
+		B51FDDF1297E9C6400396B52 /* ScreenThinksComputerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDF0297E9C6400396B52 /* ScreenThinksComputerViewController.swift */; };
+		B51FDDF3297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDF2297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift */; };
+		B51FDDF9297EFB2700396B52 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDF8297EFB2700396B52 /* Router.swift */; };
+		B51FDDFB297EFB6200396B52 /* ScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDFA297EFB6200396B52 /* ScreenBuilder.swift */; };
+		B51FDDFD297F04A900396B52 /* ScreenHumanEnterNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDDFC297F04A900396B52 /* ScreenHumanEnterNumberVC.swift */; };
+		B51FDE01297F09BE00396B52 /* ScreenHumanEnterNumberPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE00297F09BE00396B52 /* ScreenHumanEnterNumberPresenter.swift */; };
+		B51FDE03297F0E1C00396B52 /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE02297F0E1C00396B52 /* String + ext.swift */; };
+		B51FDE06297F216700396B52 /* ScreenScoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE05297F216700396B52 /* ScreenScoresVC.swift */; };
+		B51FDE08297F21B300396B52 /* ScreenScoresPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE07297F21B300396B52 /* ScreenScoresPresenter.swift */; };
+		B51FDE0A297FC2A400396B52 /* UIButton + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE09297FC2A400396B52 /* UIButton + ext.swift */; };
+		B51FDE0C297FD18A00396B52 /* ScreenStartGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE0B297FD18A00396B52 /* ScreenStartGameVC.swift */; };
+		B51FDE0E297FD19800396B52 /* ScreenStartGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE0D297FD19800396B52 /* ScreenStartGamePresenter.swift */; };
+		B51FDE10297FE72500396B52 /* UILabel + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE0F297FE72500396B52 /* UILabel + ext.swift */; };
+		B51FDE122980082E00396B52 /* UITextField + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE112980082E00396B52 /* UITextField + ext.swift */; };
+		B51FDE21298015C600396B52 /* TestScreenThinksComputerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */; };
+		B51FDE232980284F00396B52 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE222980284F00396B52 /* TestRouter.swift */; };
+		B51FDE2529802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */; };
+		B51FDE27298034CC00396B52 /* ScoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE26298034CC00396B52 /* ScoreData.swift */; };
+		B51FDE29298034E600396B52 /* ResultStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE28298034E600396B52 /* ResultStatus.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B51FDE1B298015A500396B52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B51FDDC3297D1FD800396B52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B51FDDCA297D1FD800396B52;
+			remoteInfo = guessNumberGameTestTask;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B51FDDCB297D1FD800396B52 /* guessNumberGameTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guessNumberGameTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51FDDCE297D1FD800396B52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B51FDDD0297D1FD800396B52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B51FDDD2297D1FD800396B52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B51FDDD5297D1FD800396B52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B51FDDD2297D1FD800396B52 /* ScreenThinksHumanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenThinksHumanViewController.swift; sourceTree = "<group>"; };
 		B51FDDD7297D1FDA00396B52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51FDDDA297D1FDA00396B52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B51FDDDC297D1FDA00396B52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51FDDE9297D5E2800396B52 /* ScreenThinksHumanPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenThinksHumanPresenter.swift; sourceTree = "<group>"; };
+		B51FDDEC297D66C400396B52 /* UIView + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + ext.swift"; sourceTree = "<group>"; };
+		B51FDDEE297DCB8700396B52 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		B51FDDF0297E9C6400396B52 /* ScreenThinksComputerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenThinksComputerViewController.swift; sourceTree = "<group>"; };
+		B51FDDF2297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenThinksComputerPresenter.swift; sourceTree = "<group>"; };
+		B51FDDF8297EFB2700396B52 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B51FDDFA297EFB6200396B52 /* ScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBuilder.swift; sourceTree = "<group>"; };
+		B51FDDFC297F04A900396B52 /* ScreenHumanEnterNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenHumanEnterNumberVC.swift; sourceTree = "<group>"; };
+		B51FDE00297F09BE00396B52 /* ScreenHumanEnterNumberPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenHumanEnterNumberPresenter.swift; sourceTree = "<group>"; };
+		B51FDE02297F0E1C00396B52 /* String + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ext.swift"; sourceTree = "<group>"; };
+		B51FDE05297F216700396B52 /* ScreenScoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenScoresVC.swift; sourceTree = "<group>"; };
+		B51FDE07297F21B300396B52 /* ScreenScoresPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenScoresPresenter.swift; sourceTree = "<group>"; };
+		B51FDE09297FC2A400396B52 /* UIButton + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + ext.swift"; sourceTree = "<group>"; };
+		B51FDE0B297FD18A00396B52 /* ScreenStartGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStartGameVC.swift; sourceTree = "<group>"; };
+		B51FDE0D297FD19800396B52 /* ScreenStartGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStartGamePresenter.swift; sourceTree = "<group>"; };
+		B51FDE0F297FE72500396B52 /* UILabel + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + ext.swift"; sourceTree = "<group>"; };
+		B51FDE112980082E00396B52 /* UITextField + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + ext.swift"; sourceTree = "<group>"; };
+		B51FDE17298015A500396B52 /* guessNumberGameTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guessNumberGameTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenThinksComputerPresenter.swift; sourceTree = "<group>"; };
+		B51FDE222980284F00396B52 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
+		B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenHumanEnterNumberPresenter.swift; sourceTree = "<group>"; };
+		B51FDE26298034CC00396B52 /* ScoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreData.swift; sourceTree = "<group>"; };
+		B51FDE28298034E600396B52 /* ResultStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B51FDDC8297D1FD800396B52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B51FDE14298015A500396B52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B51FDDCD297D1FD800396B52 /* guessNumberGameTestTask */,
+				B51FDE18298015A500396B52 /* guessNumberGameTestTaskTests */,
 				B51FDDCC297D1FD800396B52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B51FDDCB297D1FD800396B52 /* guessNumberGameTestTask.app */,
+				B51FDE17298015A500396B52 /* guessNumberGameTestTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +118,123 @@
 		B51FDDCD297D1FD800396B52 /* guessNumberGameTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				B51FDDCE297D1FD800396B52 /* AppDelegate.swift */,
-				B51FDDD0297D1FD800396B52 /* SceneDelegate.swift */,
-				B51FDDD2297D1FD800396B52 /* ViewController.swift */,
-				B51FDDD4297D1FD800396B52 /* Main.storyboard */,
-				B51FDDD7297D1FDA00396B52 /* Assets.xcassets */,
-				B51FDDD9297D1FDA00396B52 /* LaunchScreen.storyboard */,
-				B51FDDDC297D1FDA00396B52 /* Info.plist */,
+				B51FDDE3297D201D00396B52 /* Application */,
+				B51FDDF8297EFB2700396B52 /* Router.swift */,
+				B51FDDFA297EFB6200396B52 /* ScreenBuilder.swift */,
+				B51FDE04297F214A00396B52 /* Screen */,
+				B51FDDF7297EBE6F00396B52 /* Model */,
+				B51FDDE2297D200700396B52 /* Resources */,
+				B51FDDEB297D667C00396B52 /* Extansions */,
 			);
 			path = guessNumberGameTestTask;
+			sourceTree = "<group>";
+		};
+		B51FDDE2297D200700396B52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDD9297D1FDA00396B52 /* LaunchScreen.storyboard */,
+				B51FDDDC297D1FDA00396B52 /* Info.plist */,
+				B51FDDD7297D1FDA00396B52 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B51FDDE3297D201D00396B52 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDCE297D1FD800396B52 /* AppDelegate.swift */,
+				B51FDDD0297D1FD800396B52 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B51FDDE4297D5D6D00396B52 /* ScreenThinksHuman */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDD2297D1FD800396B52 /* ScreenThinksHumanViewController.swift */,
+				B51FDDE9297D5E2800396B52 /* ScreenThinksHumanPresenter.swift */,
+			);
+			path = ScreenThinksHuman;
+			sourceTree = "<group>";
+		};
+		B51FDDE5297D5D9000396B52 /* ScreeThinksComputer */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDF0297E9C6400396B52 /* ScreenThinksComputerViewController.swift */,
+				B51FDDF2297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift */,
+			);
+			path = ScreeThinksComputer;
+			sourceTree = "<group>";
+		};
+		B51FDDE6297D5DA400396B52 /* ScreenStartGame */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDE0B297FD18A00396B52 /* ScreenStartGameVC.swift */,
+				B51FDE0D297FD19800396B52 /* ScreenStartGamePresenter.swift */,
+			);
+			path = ScreenStartGame;
+			sourceTree = "<group>";
+		};
+		B51FDDE7297D5DB700396B52 /* ScreenHumanEnterNumber */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDFC297F04A900396B52 /* ScreenHumanEnterNumberVC.swift */,
+				B51FDE00297F09BE00396B52 /* ScreenHumanEnterNumberPresenter.swift */,
+			);
+			path = ScreenHumanEnterNumber;
+			sourceTree = "<group>";
+		};
+		B51FDDE8297D5DC800396B52 /* ScreenScores */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDE05297F216700396B52 /* ScreenScoresVC.swift */,
+				B51FDE07297F21B300396B52 /* ScreenScoresPresenter.swift */,
+			);
+			path = ScreenScores;
+			sourceTree = "<group>";
+		};
+		B51FDDEB297D667C00396B52 /* Extansions */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDEC297D66C400396B52 /* UIView + ext.swift */,
+				B51FDE02297F0E1C00396B52 /* String + ext.swift */,
+				B51FDE09297FC2A400396B52 /* UIButton + ext.swift */,
+				B51FDE0F297FE72500396B52 /* UILabel + ext.swift */,
+				B51FDE112980082E00396B52 /* UITextField + ext.swift */,
+			);
+			path = Extansions;
+			sourceTree = "<group>";
+		};
+		B51FDDF7297EBE6F00396B52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDEE297DCB8700396B52 /* GameModel.swift */,
+				B51FDE26298034CC00396B52 /* ScoreData.swift */,
+				B51FDE28298034E600396B52 /* ResultStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B51FDE04297F214A00396B52 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDDE6297D5DA400396B52 /* ScreenStartGame */,
+				B51FDDE7297D5DB700396B52 /* ScreenHumanEnterNumber */,
+				B51FDDE5297D5D9000396B52 /* ScreeThinksComputer */,
+				B51FDDE4297D5D6D00396B52 /* ScreenThinksHuman */,
+				B51FDDE8297D5DC800396B52 /* ScreenScores */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		B51FDE18298015A500396B52 /* guessNumberGameTestTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */,
+				B51FDE222980284F00396B52 /* TestRouter.swift */,
+				B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */,
+			);
+			path = guessNumberGameTestTaskTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +257,24 @@
 			productReference = B51FDDCB297D1FD800396B52 /* guessNumberGameTestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B51FDE16298015A500396B52 /* guessNumberGameTestTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B51FDE1D298015A500396B52 /* Build configuration list for PBXNativeTarget "guessNumberGameTestTaskTests" */;
+			buildPhases = (
+				B51FDE13298015A500396B52 /* Sources */,
+				B51FDE14298015A500396B52 /* Frameworks */,
+				B51FDE15298015A500396B52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B51FDE1C298015A500396B52 /* PBXTargetDependency */,
+			);
+			name = guessNumberGameTestTaskTests;
+			productName = guessNumberGameTestTaskTests;
+			productReference = B51FDE17298015A500396B52 /* guessNumberGameTestTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +287,10 @@
 				TargetAttributes = {
 					B51FDDCA297D1FD800396B52 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					B51FDE16298015A500396B52 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = B51FDDCA297D1FD800396B52;
 					};
 				};
 			};
@@ -116,6 +308,7 @@
 			projectRoot = "";
 			targets = (
 				B51FDDCA297D1FD800396B52 /* guessNumberGameTestTask */,
+				B51FDE16298015A500396B52 /* guessNumberGameTestTaskTests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,7 +320,13 @@
 			files = (
 				B51FDDDB297D1FDA00396B52 /* LaunchScreen.storyboard in Resources */,
 				B51FDDD8297D1FDA00396B52 /* Assets.xcassets in Resources */,
-				B51FDDD6297D1FD800396B52 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B51FDE15298015A500396B52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +337,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51FDDD3297D1FD800396B52 /* ViewController.swift in Sources */,
+				B51FDDD3297D1FD800396B52 /* ScreenThinksHumanViewController.swift in Sources */,
+				B51FDE03297F0E1C00396B52 /* String + ext.swift in Sources */,
 				B51FDDCF297D1FD800396B52 /* AppDelegate.swift in Sources */,
+				B51FDDF9297EFB2700396B52 /* Router.swift in Sources */,
+				B51FDE29298034E600396B52 /* ResultStatus.swift in Sources */,
+				B51FDE10297FE72500396B52 /* UILabel + ext.swift in Sources */,
+				B51FDE0E297FD19800396B52 /* ScreenStartGamePresenter.swift in Sources */,
+				B51FDE06297F216700396B52 /* ScreenScoresVC.swift in Sources */,
 				B51FDDD1297D1FD800396B52 /* SceneDelegate.swift in Sources */,
+				B51FDE0A297FC2A400396B52 /* UIButton + ext.swift in Sources */,
+				B51FDDFB297EFB6200396B52 /* ScreenBuilder.swift in Sources */,
+				B51FDDEA297D5E2800396B52 /* ScreenThinksHumanPresenter.swift in Sources */,
+				B51FDDED297D66C400396B52 /* UIView + ext.swift in Sources */,
+				B51FDE01297F09BE00396B52 /* ScreenHumanEnterNumberPresenter.swift in Sources */,
+				B51FDE08297F21B300396B52 /* ScreenScoresPresenter.swift in Sources */,
+				B51FDDF1297E9C6400396B52 /* ScreenThinksComputerViewController.swift in Sources */,
+				B51FDDFD297F04A900396B52 /* ScreenHumanEnterNumberVC.swift in Sources */,
+				B51FDDF3297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift in Sources */,
+				B51FDE0C297FD18A00396B52 /* ScreenStartGameVC.swift in Sources */,
+				B51FDDEF297DCB8700396B52 /* GameModel.swift in Sources */,
+				B51FDE27298034CC00396B52 /* ScoreData.swift in Sources */,
+				B51FDE122980082E00396B52 /* UITextField + ext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B51FDE13298015A500396B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B51FDE2529802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift in Sources */,
+				B51FDE21298015C600396B52 /* TestScreenThinksComputerPresenter.swift in Sources */,
+				B51FDE232980284F00396B52 /* TestRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		B51FDDD4297D1FD800396B52 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B51FDDD5297D1FD800396B52 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		B51FDE1C298015A500396B52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B51FDDCA297D1FD800396B52 /* guessNumberGameTestTask */;
+			targetProxy = B51FDE1B298015A500396B52 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		B51FDDD9297D1FDA00396B52 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,12 +517,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37FQQ4WXUX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = guessNumberGameTestTask/Info.plist;
+				INFOPLIST_FILE = guessNumberGameTestTask/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +531,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alexei.poprotskii.guessNumberGameTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +549,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37FQQ4WXUX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = guessNumberGameTestTask/Info.plist;
+				INFOPLIST_FILE = guessNumberGameTestTask/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +563,50 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alexei.poprotskii.guessNumberGameTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B51FDE1E298015A500396B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37FQQ4WXUX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alexei.poprotskii.guessNumberGameTestTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/guessNumberGameTestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/guessNumberGameTestTask";
+			};
+			name = Debug;
+		};
+		B51FDE1F298015A500396B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37FQQ4WXUX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alexei.poprotskii.guessNumberGameTestTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/guessNumberGameTestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/guessNumberGameTestTask";
 			};
 			name = Release;
 		};
@@ -353,6 +627,15 @@
 			buildConfigurations = (
 				B51FDDE0297D1FDA00396B52 /* Debug */,
 				B51FDDE1297D1FDA00396B52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B51FDE1D298015A500396B52 /* Build configuration list for PBXNativeTarget "guessNumberGameTestTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B51FDE1E298015A500396B52 /* Debug */,
+				B51FDE1F298015A500396B52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
