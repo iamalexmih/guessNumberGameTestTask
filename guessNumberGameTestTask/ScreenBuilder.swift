@@ -19,7 +19,6 @@ protocol BuilderProtocol {
 
 
 class ScreenBuilder: BuilderProtocol {
-    
     func screenStartGameVC(router: RouterProtocol)  -> UIViewController {
         let view = ScreenStartGameVC()
         let presenter = ScreenStartGamePresenter(view: view,
@@ -27,7 +26,6 @@ class ScreenBuilder: BuilderProtocol {
         view.presenter = presenter
         return view
     }
-    
     
     func screenHumanEnterNumber(router: RouterProtocol) -> UIViewController {
         let view = ScreenHumanEnterNumberVC()
@@ -37,7 +35,6 @@ class ScreenBuilder: BuilderProtocol {
         return view
     }
     
-    
     func screenThinksComputer(_ humanNumber: Int, router: RouterProtocol) -> UIViewController {
         let view = ScreenThinksComputerViewController()
         let presenter = ScreenThinksComputerPresenter(view: view,
@@ -46,7 +43,6 @@ class ScreenBuilder: BuilderProtocol {
         view.presenter = presenter
         return view
     }
-    
     
     func screenThinksHuman(router: RouterProtocol) -> UIViewController {
         let view = ScreenThinksHumanViewController()

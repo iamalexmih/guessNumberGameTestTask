@@ -29,8 +29,11 @@
 		B51FDE0E297FD19800396B52 /* ScreenStartGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE0D297FD19800396B52 /* ScreenStartGamePresenter.swift */; };
 		B51FDE10297FE72500396B52 /* UILabel + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE0F297FE72500396B52 /* UILabel + ext.swift */; };
 		B51FDE122980082E00396B52 /* UITextField + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE112980082E00396B52 /* UITextField + ext.swift */; };
-		B51FDE1A298015A500396B52 /* guessNumberGameTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE19298015A500396B52 /* guessNumberGameTestTaskTests.swift */; };
 		B51FDE21298015C600396B52 /* TestScreenThinksComputerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */; };
+		B51FDE232980284F00396B52 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE222980284F00396B52 /* TestRouter.swift */; };
+		B51FDE2529802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */; };
+		B51FDE27298034CC00396B52 /* ScoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE26298034CC00396B52 /* ScoreData.swift */; };
+		B51FDE29298034E600396B52 /* ResultStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FDE28298034E600396B52 /* ResultStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +72,11 @@
 		B51FDE0F297FE72500396B52 /* UILabel + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + ext.swift"; sourceTree = "<group>"; };
 		B51FDE112980082E00396B52 /* UITextField + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + ext.swift"; sourceTree = "<group>"; };
 		B51FDE17298015A500396B52 /* guessNumberGameTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guessNumberGameTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B51FDE19298015A500396B52 /* guessNumberGameTestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessNumberGameTestTaskTests.swift; sourceTree = "<group>"; };
 		B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenThinksComputerPresenter.swift; sourceTree = "<group>"; };
+		B51FDE222980284F00396B52 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
+		B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenHumanEnterNumberPresenter.swift; sourceTree = "<group>"; };
+		B51FDE26298034CC00396B52 /* ScoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreData.swift; sourceTree = "<group>"; };
+		B51FDE28298034E600396B52 /* ResultStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +122,7 @@
 				B51FDDF8297EFB2700396B52 /* Router.swift */,
 				B51FDDFA297EFB6200396B52 /* ScreenBuilder.swift */,
 				B51FDE04297F214A00396B52 /* Screen */,
-				B51FDDF7297EBE6F00396B52 /* BaseModel */,
+				B51FDDF7297EBE6F00396B52 /* Model */,
 				B51FDDE2297D200700396B52 /* Resources */,
 				B51FDDEB297D667C00396B52 /* Extansions */,
 			);
@@ -199,12 +205,14 @@
 			path = Extansions;
 			sourceTree = "<group>";
 		};
-		B51FDDF7297EBE6F00396B52 /* BaseModel */ = {
+		B51FDDF7297EBE6F00396B52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B51FDDEE297DCB8700396B52 /* GameModel.swift */,
+				B51FDE26298034CC00396B52 /* ScoreData.swift */,
+				B51FDE28298034E600396B52 /* ResultStatus.swift */,
 			);
-			path = BaseModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B51FDE04297F214A00396B52 /* Screen */ = {
@@ -222,8 +230,9 @@
 		B51FDE18298015A500396B52 /* guessNumberGameTestTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				B51FDE19298015A500396B52 /* guessNumberGameTestTaskTests.swift */,
 				B51FDE20298015C600396B52 /* TestScreenThinksComputerPresenter.swift */,
+				B51FDE222980284F00396B52 /* TestRouter.swift */,
+				B51FDE2429802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift */,
 			);
 			path = guessNumberGameTestTaskTests;
 			sourceTree = "<group>";
@@ -332,6 +341,7 @@
 				B51FDE03297F0E1C00396B52 /* String + ext.swift in Sources */,
 				B51FDDCF297D1FD800396B52 /* AppDelegate.swift in Sources */,
 				B51FDDF9297EFB2700396B52 /* Router.swift in Sources */,
+				B51FDE29298034E600396B52 /* ResultStatus.swift in Sources */,
 				B51FDE10297FE72500396B52 /* UILabel + ext.swift in Sources */,
 				B51FDE0E297FD19800396B52 /* ScreenStartGamePresenter.swift in Sources */,
 				B51FDE06297F216700396B52 /* ScreenScoresVC.swift in Sources */,
@@ -347,6 +357,7 @@
 				B51FDDF3297E9C7A00396B52 /* ScreenThinksComputerPresenter.swift in Sources */,
 				B51FDE0C297FD18A00396B52 /* ScreenStartGameVC.swift in Sources */,
 				B51FDDEF297DCB8700396B52 /* GameModel.swift in Sources */,
+				B51FDE27298034CC00396B52 /* ScoreData.swift in Sources */,
 				B51FDE122980082E00396B52 /* UITextField + ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51FDE2529802C5100396B52 /* TestScreenHumanEnterNumberPresenter.swift in Sources */,
 				B51FDE21298015C600396B52 /* TestScreenThinksComputerPresenter.swift in Sources */,
-				B51FDE1A298015A500396B52 /* guessNumberGameTestTaskTests.swift in Sources */,
+				B51FDE232980284F00396B52 /* TestRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

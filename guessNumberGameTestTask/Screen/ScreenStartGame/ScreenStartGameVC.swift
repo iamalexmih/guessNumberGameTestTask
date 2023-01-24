@@ -17,9 +17,9 @@ class ScreenStartGameVC: UIViewController, ScreenStartGameVCProtocol {
     var presenter: ScreenStartGamePresenterProtocol!
     private let labelTitleScreen = UILabel().makeLabel(text: "My Awesome Game")
     private let buttonStartGame = UIButton().makeBigButton(title: "Start New Game")
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = true
+    private var landscape: [NSLayoutConstraint]?
+    private var portrait: [NSLayoutConstraint]?
+    private var isPortrait: Bool = true
     
     
     override func viewDidLoad() {

@@ -23,7 +23,7 @@ class ScreenThinksComputerPresenter: ScreenThinksComputerPresenterProtocol {
     var minNumber = 1
     var maxNumber = 100
     
-    unowned let view: ScreenThinksComputerViewControllerProtocol
+    private unowned let view: ScreenThinksComputerViewControllerProtocol
     private let router: RouterProtocol
     
     

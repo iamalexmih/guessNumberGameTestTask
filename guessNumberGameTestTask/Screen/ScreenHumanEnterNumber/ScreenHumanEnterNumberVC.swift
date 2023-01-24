@@ -17,9 +17,9 @@ protocol ScreenHumanEnterNumberVCProtocol: AnyObject {
 class ScreenHumanEnterNumberVC: UIViewController {
     
     var presenter: ScreenHumanEnterNumberPresenter!
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = true
+    private var landscape: [NSLayoutConstraint]?
+    private var portrait: [NSLayoutConstraint]?
+    private var isPortrait: Bool = true
     
     private let textFieldNumberHuman = UITextField().makeTextField(placeholderText: "Guess the number")
     private let labelMessage = UILabel().makeLabel()
@@ -79,7 +79,6 @@ extension ScreenHumanEnterNumberVC: ScreenHumanEnterNumberVCProtocol {
 }
 
 // MARK: - Extension Constraints
-
 extension ScreenHumanEnterNumberVC {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -130,7 +129,6 @@ extension ScreenHumanEnterNumberVC {
 
 
 // MARK: - Extension for Add View
-
 extension ScreenHumanEnterNumberVC {
     private func setupView() {
         view.addSubviewViewAndTamic(textFieldNumberHuman)

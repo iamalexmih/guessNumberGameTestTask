@@ -14,17 +14,3 @@ struct GameModel {
     var tryGuess: Int = 1
 }
 
-class ScoreData {
-    static let shared = ScoreData()
-    private init() {}
-    var humanWin: Int = 0
-    var computerWin: Int = 0
-}
-
-enum ResultStatus {
-    case none
-    case equal
-    case more
-    case less
-    case error
-}

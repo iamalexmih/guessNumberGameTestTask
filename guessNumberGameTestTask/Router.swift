@@ -9,10 +9,11 @@ import UIKit
 
 
 protocol RouterMainProtocol {
-    var viewController: UIViewController? { get set }
-    var builder: BuilderProtocol? { get set }
+    var viewController: UIViewController? { get }
+    var builder: BuilderProtocol? { get }
     init(viewController: UIViewController, builder: BuilderProtocol)
 }
+
 
 protocol RouterProtocol: RouterMainProtocol {
     func showScreenStartGame()
@@ -24,15 +25,14 @@ protocol RouterProtocol: RouterMainProtocol {
 
 
 class Router: RouterProtocol {
-    
     var viewController: UIViewController?
     var builder: BuilderProtocol?
+    
     
     required init(viewController: UIViewController, builder: BuilderProtocol) {
         self.viewController = viewController
         self.builder = builder
     }
-    
     
     func showScreenStartGame() {
         if let viewController = viewController, let builder = builder {
@@ -43,7 +43,6 @@ class Router: RouterProtocol {
         }
     }
     
-    
     func showsScreenHumanEnterNumber() {
         if let viewController = viewController, let builder = builder {
             let vc = builder.screenHumanEnterNumber(router: self)
@@ -52,7 +51,6 @@ class Router: RouterProtocol {
             self.viewController = vc
         }
     }
-    
     
     func showsScreenThinksComputer(_ humanNumber: Int) {
         if let viewController = viewController, let builder = builder {

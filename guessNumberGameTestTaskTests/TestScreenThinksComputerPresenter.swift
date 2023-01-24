@@ -7,25 +7,17 @@
 
 import XCTest
 
-class MockView: ScreenThinksComputerViewControllerProtocol {
-    func setLabelTry(_ text: String) {
-        
-    }
-    
-    func setLabelThinksComputer(_ text: String) {
-        
-    }
-    
-    func setLabelHumanAnswer(_ text: String) {
-        
-    }
+class MockViewThinksComputer: ScreenThinksComputerViewControllerProtocol {
+    func setLabelTry(_ text: String) { }
+    func setLabelThinksComputer(_ text: String) { }
+    func setLabelHumanAnswer(_ text: String) { }
 }
 
 
 @testable import guessNumberGameTestTask
 final class TestScreenThinksComputerPresenter: XCTestCase {
     
-    var view: MockView!
+    var view: MockViewThinksComputer!
     var presenter: ScreenThinksComputerPresenter!
     var router: RouterProtocol!
     
@@ -33,7 +25,7 @@ final class TestScreenThinksComputerPresenter: XCTestCase {
         let viewController = UIViewController()
         let screenBuilder = ScreenBuilder()
         router = Router(viewController: viewController, builder: screenBuilder)
-        view = MockView()
+        view = MockViewThinksComputer()
     }
 
     override func tearDownWithError() throws {

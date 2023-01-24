@@ -18,9 +18,9 @@ protocol ScreenThinksHumanViewControllerProtocol: AnyObject {
 class ScreenThinksHumanViewController: UIViewController {
 
     var presenter: ScreenThinksHumanPresenterProtocol!
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = true
+    private var landscape: [NSLayoutConstraint]?
+    private var portrait: [NSLayoutConstraint]?
+    private var isPortrait: Bool = true
     
     private let labelTry = UILabel().makeLabel()
     private let labelRoundStart = UILabel().makeLabel(text: "You are guessing")

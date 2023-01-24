@@ -18,7 +18,7 @@ protocol ScreenHumanEnterNumberPresenterProtocol: AnyObject {
 
 class ScreenHumanEnterNumberPresenter: ScreenHumanEnterNumberPresenterProtocol {
 
-    private var humanValue: String = ""
+    var humanValue: String = ""
     
     private unowned let view: ScreenHumanEnterNumberVCProtocol
     private let router: RouterProtocol

@@ -18,9 +18,9 @@ protocol ScreenThinksComputerViewControllerProtocol: AnyObject {
 class ScreenThinksComputerViewController: UIViewController {
     
     var presenter: ScreenThinksComputerPresenterProtocol!
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = true
+    private var landscape: [NSLayoutConstraint]?
+    private var portrait: [NSLayoutConstraint]?
+    private var isPortrait: Bool = true
     
     private let labelTry = UILabel().makeLabel()
     private let labelRoundStart = UILabel().makeLabel(text: "Computer is guessing")

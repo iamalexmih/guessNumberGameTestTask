@@ -17,9 +17,9 @@ protocol ScreenScoresVCProtocol: AnyObject {
 class ScreenScoresVC: UIViewController {
     
     var presenter: ScreenScoresPresenterProtocol!
-    var landscape: [NSLayoutConstraint]?
-    var portrait: [NSLayoutConstraint]?
-    var isPortrait: Bool = true
+    private var landscape: [NSLayoutConstraint]?
+    private var portrait: [NSLayoutConstraint]?
+    private var isPortrait: Bool = true
     
     private let labelTitleScreen = UILabel().makeLabel(text: "Scores:")
     private let labelHumanTryCount = UILabel().makeLabel()
