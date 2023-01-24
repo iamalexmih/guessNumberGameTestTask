@@ -8,15 +8,16 @@
 import UIKit
 
 
-protocol RouterMainProtocol {
-    var viewController: UIViewController? { get }
+protocol RouterMainProtocol: AnyObject {
+    var navigationController: UINavigationController? { get }
     var builder: BuilderProtocol? { get }
-    init(viewController: UIViewController, builder: BuilderProtocol)
+    init(navigationController: UINavigationController, builder: BuilderProtocol)
 }
 
 
 protocol RouterProtocol: RouterMainProtocol {
-    func showScreenStartGame()
+    func initialViewController()
+    func popToRoot()
     func showsScreenHumanEnterNumber()
     func showsScreenThinksComputer(_ humanNumber: Int)
     func showsScreenThinksHuman()
@@ -25,57 +26,56 @@ protocol RouterProtocol: RouterMainProtocol {
 
 
 class Router: RouterProtocol {
-    var viewController: UIViewController?
+    var navigationController: UINavigationController?
     var builder: BuilderProtocol?
     
     
-    required init(viewController: UIViewController, builder: BuilderProtocol) {
-        self.viewController = viewController
+    required init(navigationController: UINavigationController, builder: BuilderProtocol) {
+        
+        navigationController.navigationItem.backButtonTitle = "d"
+        self.navigationController = navigationController
         self.builder = builder
     }
     
-    func showScreenStartGame() {
-        if let viewController = viewController, let builder = builder {
-            let vc = builder.screenStartGameVC(router: self)
-            vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
-            self.viewController = vc
+    func initialViewController() {
+        if let navigationController = navigationController {
+            guard let vc = builder?.screenStartGameVC(router: self) else { return }
+            navigationController.navigationItem.backButtonTitle = "d"
+            navigationController.viewControllers = [vc]
         }
     }
     
     func showsScreenHumanEnterNumber() {
-        if let viewController = viewController, let builder = builder {
-            let vc = builder.screenHumanEnterNumber(router: self)
-            vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
-            self.viewController = vc
+        if let navigationController = navigationController {
+            guard let screenHumanEnterNumber = builder?.screenHumanEnterNumber(router: self) else { return }
+            navigationController.pushViewController(screenHumanEnterNumber, animated: true)
         }
     }
     
     func showsScreenThinksComputer(_ humanNumber: Int) {
-        if let viewController = viewController, let builder = builder {
-            let vc = builder.screenThinksComputer(humanNumber, router: self)
-            vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
-            self.viewController = vc
+        if let navigationController = navigationController {
+            guard let screenThinksComputer = builder?.screenThinksComputer(humanNumber, router: self) else { return }
+            navigationController.pushViewController(screenThinksComputer, animated: true)
         }
     }
     
     func showsScreenThinksHuman() {
-        if let viewController = viewController, let builder = builder {
-            let vc = builder.screenThinksHuman(router: self)
-            vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
-            self.viewController = vc
+        if let navigationController = navigationController {
+            guard let screenThinksHuman = builder?.screenThinksHuman(router: self) else { return }
+            navigationController.pushViewController(screenThinksHuman, animated: true)
         }
     }
     
     func showScreenScores() {
-        if let viewController = viewController, let builder = builder {
-            let vc = builder.screenScores(router: self)
-            vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
-            self.viewController = vc
+        if let navigationController = navigationController {
+            guard let screenScores = builder?.screenScores(router: self) else { return }
+            navigationController.pushViewController(screenScores, animated: true)
+        }
+    }
+    
+    func popToRoot() {
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
         }
     }
 }

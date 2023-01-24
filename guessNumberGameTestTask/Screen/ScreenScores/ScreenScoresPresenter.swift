@@ -29,7 +29,7 @@ class ScreenScoresPresenter: ScreenScoresPresenterProtocol {
     }
     
     func buttonMainMenuWasPress() {
-        router.showScreenStartGame()
+        router.popToRoot()
     }
     
     private func calculateScore() {

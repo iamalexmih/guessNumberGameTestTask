@@ -30,6 +30,11 @@ class ScreenStartGameVC: UIViewController, ScreenStartGameVCProtocol {
         buttonStartGame.addTarget(self, action: #selector(buttonStartGamePress), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @objc func buttonStartGamePress() {
         presenter.buttonStartGameWasPress()
     }

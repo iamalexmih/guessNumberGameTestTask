@@ -16,10 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let builder = ScreenBuilder()
-        let view = ScreenStartGameVC()
-        let router = Router(viewController: view, builder: builder)
-        view.presenter = ScreenStartGamePresenter(view: view, router: router)
-        window?.rootViewController = view
+        let navigationController = UINavigationController()
+        let router = Router(navigationController: navigationController, builder: builder)
+        router.initialViewController()
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
