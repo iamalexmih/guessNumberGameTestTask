@@ -31,17 +31,14 @@ class Router: RouterProtocol {
     
     
     required init(navigationController: UINavigationController, builder: BuilderProtocol) {
-        
-        navigationController.navigationItem.backButtonTitle = "d"
         self.navigationController = navigationController
         self.builder = builder
     }
     
     func initialViewController() {
         if let navigationController = navigationController {
-            guard let vc = builder?.screenStartGameVC(router: self) else { return }
-            navigationController.navigationItem.backButtonTitle = "d"
-            navigationController.viewControllers = [vc]
+            guard let screenStartGameVC = builder?.screenStartGameVC(router: self) else { return }
+            navigationController.viewControllers = [screenStartGameVC]
         }
     }
     
